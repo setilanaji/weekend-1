@@ -42,8 +42,7 @@ SDLC berisi beberapa tahapan sebagai berikut:
 
 ## Figma
 
-Figma adalah free vector graphic editor sekaligus prototyping tool berbasis web.
-
+[Figma](https://www.figma.com/) adalah free vector graphic editor sekaligus prototyping tool berbasis web.
 
 ## Kotlin Basic
 ### Basic Syntax
@@ -183,8 +182,48 @@ Bila bersifat tak dapat diubah berarti ditulis `List` saja.
 * **Late initialized properti dan variable** penggunaan keyword `lateinit` bertujuan bila tidak ingin meng inisialisasi properti saat deklarasi tapi juga dalam waktu yang sama tidak ingin menggunakan null check pada properti tersebut setiap kali kita menggunakan properti tersebut.
     ```Kotlin
     lateinit var variable : CustomClass
-### Extension
-
 ## Function & Lambda
 ## Kotlin Collection
+### Iterator
+### Sequence
+### Transformation
+### Grouping
+### Ordering
+### Aggregate operation
+
 ## Kotlin Language Construct
+### Destruction Declarations
+Destructuring declaration menghasilkan multiple variable dalam satu waktu. Sebagai contoh:
+```Kotlin
+val (name, age) = person
+
+println(name)
+println(age)
+```
+Variable `name` dan `age` dapat digunakan secara independen.
+
+Destructuring declaration juga bisa digunakan dalam `for-loop`. seperti:
+```Kotlin
+for ((a, b) in collection) { ... }
+```
+Bila tidak membutuhkan sebuah variable dala proses destructuring maka bisa menggantinya dengan menuliskan underscore:
+```Kotlin
+val (_, status) = getResult()
+```
+
+### Type check and Cast
+### Null Safety
+### Exception
+### Annotation
+
+### Scope Function
+Scope function pada Kotlin merupakan fungsi-fungsi yang mengijikan untuk mengubah scope atau range dari sebuah variable. Terdapat lima jenis fungsi dalam standard library Kotlin yaitu: `apply`, `run`, `with`, `let`, `also`
+```Kotlin
+fun myFun() {
+    val outside = 6.2831853071
+    run {
+        val inside = 1.61803398875
+        // Both outside and inside are usable and in scope
+    }
+    // inside is out of scope, and only outside is available
+}

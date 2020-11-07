@@ -183,6 +183,32 @@ Bila bersifat tak dapat diubah berarti ditulis `List` saja.
     ```Kotlin
     lateinit var variable : CustomClass
 ## Function & Lambda
+`Function` dalam Kotlin di deklarasikan menggunakan keyword `fun` :
+```Kotlin
+fun double(x: Int): Int {
+    return 2 * x
+}
+``` 
+Parameter dalam `function` di tulis menggunakan notasi Pascal seperti: `name: Type` . Parameter dipisah menggunakan koma:
+```Kotlin
+fun powerOf(number: Int, exponent: Int) { /*...*/ }
+``` 
+untuk default argument dan named argument masih terlihat seperti bahasa modern pada umumnya.
+
+Jika function tidak mengembalikan value, maka tipe yang di kembalikan berupa `Unit`. Value ini tidak di kembalikan secara explicit:
+```Kotlin
+fun printHello(name: String?): Unit {
+    if (name != null)
+        println("Hello $name")
+    else
+        println("Hi there!")
+    // `return Unit` atau `return` bersifat opsional
+}
+```
+Saat function mengembalikan satu nilai saja maka kurung kurawal bisa di hilangkan dan body di tulis setelah simbol =
+```Kotlin
+fun double(x: Int): Int = x * 2
+```
 ## Kotlin Collection
 ### Iterator
 ### Sequence

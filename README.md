@@ -210,7 +210,11 @@ Bila tidak membutuhkan sebuah variable dala proses destructuring maka bisa mengg
 ```Kotlin
 val (_, status) = getResult()
 ```
-
+Bisa juga digunakan untuk parameter lamda. Jika sebuah lamda memiliki parameter dengan tipe `Pair` (atau `Map.Entry`):
+```Kotlin
+map.mapValues { entry -> "${entry.value}!" }
+map.mapValues { (key, value) -> "$value!" }
+```
 ### Type check and Cast
 ### Null Safety
 ### Exception

@@ -121,6 +121,70 @@ Bila bersifat tak dapat diubah berarti ditulis `List` saja.
         else -> { print("x isn’t 1") }
     }
 ## Kotlin Class & Objects
+### Classes and Inheritance
+* **Constructor** dalam Kotlin, class dapat memiliki satu primary constructor dan satu atau lebih contructor tambahan
+    ```Kotlin
+    class Person(val name: String) {
+        val children = mutableListOf<Person>()
+        constructor(name: String, parent: Person) : this(name) {
+        parent.children.add(this)
+        }
+    }
+    val parent = Person("Abi")
+    val child = Person("Fulan", parent)
+* **Inheritance** untuk melakukan inheritance dalam `class` kotlin perlu ditambahkan keyword `open`
+    ```Kotlin
+    open class Person(val name: String) {
+        var age = 0
+    }
+    
+    class Adult(name: String) : Person(name) {
+        init {
+            age = 18
+        }
+    }
+### Properties dan File
+* **Getter dan Setter** berfungsi untuk melakukan enkapsulasi. Setter hanya bisa dilakukan pada mutable variable atau `var`, sedangkan getter dapat dilakukan ke semua jenis. 
+    ```Kotlin
+    class Student {
+        var name: String = ""
+        get() {
+            println("Getting name")
+            return field
+        }
+        set(value) {
+            println("Changing name")
+            field = value
+        }
+* **Backing field** dibuat untuk menghindari recursive call dan mengakibatkan StackOverflow exception karena memanggil setter dalam setter.
+    ```Kotlin
+    class User{
+        var firstName : String  
+            get() = field
+            set(value) {field = value}
+    
+        var lastName : String  
+            get() = field
+            set(value) {field = value}
+    }
+* **Backing properties** berfungsi untuk mengakses field properti dalam scope getter dan setter
+    ```Kotlin
+    class Human {
+        private val _age: Int = 20
+        val age: Int
+            get() {
+                return _age
+            }
+
+        val printAge = {
+            println("Age is: $_age")
+        }
+    }
+* **Late initialized properti dan variable** penggunaan keyword `lateinit` bertujuan bila tidak ingin meng inisialisasi properti saat deklarasi tapi juga dalam waktu yang sama tidak ingin menggunakan null check pada properti tersebut setiap kali kita menggunakan properti tersebut.
+    ```Kotlin
+    lateinit var variable : CustomClass
+### Extension
+
 ## Function & Lambda
 ## Kotlin Collection
 ## Kotlin Language Construct

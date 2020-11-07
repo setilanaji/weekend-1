@@ -210,13 +210,7 @@ Saat function mengembalikan satu nilai saja maka kurung kurawal bisa di hilangka
 fun double(x: Int): Int = x * 2
 ```
 ## Kotlin Collection
-
-### Iterator
-### Sequence
-### Transformation
-### Grouping
-### Ordering
-### Aggregate operation
+Collection digunakan untuk mennyimpan kumpulan objeect yang sama dalam memori. 
 
 ## Kotlin Language Construct
 ### Destruction Declarations
@@ -242,11 +236,17 @@ Bisa juga digunakan untuk parameter lamda. Jika sebuah lamda memiliki parameter 
 map.mapValues { entry -> "${entry.value}!" }
 map.mapValues { (key, value) -> "$value!" }
 ```
-### Type check and Cast
 ### Null Safety
-### Exception
-### Annotation
-
+Null dafety adalah salah satu fitur dalam Kotlin. Di kotlin, ada variabel yang bisa memuat null(nullable references) dan ada yang tidak bisa (non-null references). Sebagai contoh: 
+```Kotlin
+var x: String ="test"
+x = null
+```
+Karena variabel `x` tidak bisa memuat null maka akan terjadi error saat melakukan kompilasi. Jika pengguna ingin `x` bisa memuat null, maka perlu menandainya secara explisit dengan menambahkan tanda tanya ( `?` ) dibelakang tipe datanya.
+```Kotlin
+var x: String? ="test"
+x = null
+```
 ### Scope Function
 Scope function pada Kotlin merupakan fungsi-fungsi yang mengijikan untuk mengubah scope atau range dari sebuah variable. Terdapat lima jenis fungsi dalam standard library Kotlin yaitu: `apply`, `run`, `with`, `let`, `also`
 ```Kotlin

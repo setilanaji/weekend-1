@@ -247,6 +247,18 @@ Karena variabel `x` tidak bisa memuat null maka akan terjadi error saat melakuka
 var x: String? ="test"
 x = null
 ```
+Untuk memanggil bisa menggunakan yang disebut safe call, yaitu menandai dengan menggunakan tanda `?`
+```Kotlin
+x?.length
+```
+Apabila ternyata nilai yang dipanggil adalah null, bisa didefinisikan value selain null. Tanda `?:` dikenal juga dengan **Elvis Operator**
+```Kotlin
+x?.length ?: -1
+```
+Apabila memang yakin kalau nilai yang dipanggil bukan null, bisa dipaksakan dengan menggunakan operator `!!` atau dikenal dengan not-null assertion operator
+```Kotlin
+val l = x!!.length
+```
 ### Scope Function
 Scope function pada Kotlin merupakan fungsi-fungsi yang mengijikan untuk mengubah scope atau range dari sebuah variable. Terdapat lima jenis fungsi dalam standard library Kotlin yaitu: `apply`, `run`, `with`, `let`, `also`
 ```Kotlin

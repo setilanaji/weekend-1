@@ -210,6 +210,7 @@ Saat function mengembalikan satu nilai saja maka kurung kurawal bisa di hilangka
 fun double(x: Int): Int = x * 2
 ```
 ## Kotlin Collection
+
 ### Iterator
 ### Sequence
 ### Transformation
